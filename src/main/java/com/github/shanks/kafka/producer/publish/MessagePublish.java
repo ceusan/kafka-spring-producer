@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 import com.github.shanks.kafka.producer.PublishMsg;
 
+import lombok.Getter;
+import lombok.experimental.Accessors;
+
 @Service
 public class MessagePublish extends PublishMsg {
 
 	@Value("${helloworld.topic}")
-	private String topic;
+	@Getter
+	@Accessors(fluent = true)
+	private String publishTopic;
 	
-	@Override
-	public String publishTopic() {
-		return topic;
-	}
-
 }
